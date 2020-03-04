@@ -1,4 +1,5 @@
 
-This is a bag of words deep learning classifier example.
 
-Type in a English, Spanish, or French phrase and the algorithm will guess what language you are speaking!
+Type in a phrase, and this program will guess your language!!!
+
+The algorithm predicts whether your phrase is english, spanish, or french, and how confident it is with its prediction.

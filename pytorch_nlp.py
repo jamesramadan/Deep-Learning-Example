@@ -95,8 +95,6 @@ test_text = input("Enter a phrase in Spanish, English, or French: ")
 test_data = [(test_text.split(), "")]
 print('processing...')
 
-    
-
 word_to_ix = {}
 for i, phrases in enumerate(data + test_data):
     for word in phrases[0]:
@@ -106,18 +104,14 @@ for i, phrases in enumerate(data + test_data):
 VOCAB_SIZE = len(word_to_ix)
 NUM_LABELS = 3
 
-
 class BoWClassifier(nn.Module):
 
     def __init__(self, num_labels, vocab_size):
         super(BoWClassifier, self).__init__()
         self.linear = nn.Linear(vocab_size, num_labels)
 
-
-
     def forward(self, bow_vec):
         return F.log_softmax(self.linear(bow_vec), dim=1)
-
 
 def make_bow_vector(sentence, word_to_ix):
     vec = torch.zeros(len(word_to_ix))
@@ -137,16 +131,13 @@ with torch.no_grad():
     log_probs = model(bow_vector)
 
 
-
 label_to_ix = {"SPANISH": 0, "ENGLISH": 1, "FRENCH": 2}
-
 
 with torch.no_grad():
     for instance, label in test_data:
         bow_vec = make_bow_vector(instance, word_to_ix)
         log_probs = model(bow_vec)
         probs = np.exp(log_probs)
-
 
 
 loss_function = nn.NLLLoss()
