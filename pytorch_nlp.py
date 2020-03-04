@@ -161,7 +161,6 @@ with torch.no_grad():
         bow_vec = make_bow_vector(instance, word_to_ix)
         log_probs = model(bow_vec)
         probs = np.exp(log_probs).numpy()
-        # print('language probabilities', probs) #first entry likely spanish has 88% chance, second entry likely english has 94% chance, third entry french
         span_prob = probs[0][0]
         eng_prob = probs[0][1]
         french_prob = probs[0][2]
