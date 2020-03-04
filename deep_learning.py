@@ -7,10 +7,6 @@ import torch
 import torch.optim as optim
 import torch.nn as nn
 import torch.nn.functional as F
-from torchviz import make_dot
-from torch.utils.data import Dataset, TensorDataset
-from torch.utils.data import DataLoader
-from torch.utils.data.dataset import random_split
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu' #uses GPU if available, otherwise defaults to CPU for processing
 
